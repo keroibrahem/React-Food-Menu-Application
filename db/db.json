@@ -1,0 +1,89 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "name": "Large Burger",
+      "price": "50",
+      "count": 0,
+      "clicked": false,
+      "category": "1"
+    },
+    {
+      "id": 2,
+      "name": "Large Fries",
+      "price": "40",
+      "count": 0,
+      "clicked": false,
+      "category": "2"
+    },
+    {
+      "id": 3,
+      "name": "Large Water",
+      "price": "20",
+      "count": 0,
+      "clicked": false,
+      "category": "3"
+    },
+    {
+      "id": 4,
+      "name": "midam Burger",
+      "price": "30",
+      "count": 0,
+      "clicked": false,
+      "category": "1"
+    },
+    {
+      "id": 5,
+      "name": "midam Fries",
+      "price": "20",
+      "count": 0,
+      "clicked": false,
+      "category": "2"
+    },
+    {
+      "id": 6,
+      "name": "midam Water",
+      "price": "10",
+      "count": 0,
+      "clicked": false,
+      "category": "3"
+    },
+    {
+      "id": 7,
+      "name": "small Burger",
+      "price": "10",
+      "count": 0,
+      "clicked": false,
+      "category": "1"
+    },
+    {
+      "id": 8,
+      "name": "small Fries",
+      "price": "8",
+      "count": 0,
+      "clicked": false,
+      "category": "2"
+    },
+    {
+      "id": 9,
+      "name": "small Water",
+      "price": "5",
+      "count": 0,
+      "clicked": false,
+      "category": "3"
+    },
+    {
+        "id": 10,
+        "name": "ice",
+        "price": "3",
+        "count": 0,
+        "clicked": false,
+        "category": "3"
+      }
+  ]
+  ,"categorys":[
+    {"id":1,"name":"Burger"},
+    {"id":2,"name":"Fries"},
+    {"id":3,"name":"Water"}
+  ]
+}
