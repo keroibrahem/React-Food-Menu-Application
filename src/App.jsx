@@ -57,16 +57,21 @@ function App() {
     const index = newitems.findIndex((itm) => itm.id === id);
     console.log(newitems[index].count);
     //edit
-    newitems[index] = {
-      ...newitems[index],
-      count: newitems[index].count + val,
-    };
+    if(val>0 || newitems[index].count!==0 ){
+      newitems[index] = {
+        ...newitems[index],
+        count: newitems[index].count + val,
+      };
+    }
     //setitems
     setItems(newitems);
   };
   const handeldelete = (id) => {
     //edit
-    let newitems = items.filter((itm) => itm.id !== id);
+    const newitems = items.map((itm) => ({
+      ...itm,
+      clicked: itm.id === id ? !itm.clicked : itm.clicked,
+    }));
     //setitems
     setItems(newitems);
   };
