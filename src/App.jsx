@@ -13,6 +13,7 @@ function App() {
   const [items, setItems] = useState([]);
   const [categories, setCategories] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
+  const [searchValue , setSearchValue] = useState("");
   const [loading, setloading] = useState(false);
   const [slectedCategory, setSelectedCat] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -82,26 +83,37 @@ function App() {
   const handleSelectCat = (id) => {
     setSelectedCat(id);
 
-    const filterItems =
-      id === 0 ? items : items.filter((itm) => +itm.category === id);
-
-    setFilteredItems(filterItems);
     setCurrentPage(1);
   };
 
   const handelSaersh = (e) => {
-    if (e.target.value) {
-      const searchValue = e.target.value.toLowerCase();
-      const filtered = items.filter((itm) =>
-        itm.name.toLowerCase().includes(searchValue)
-      );
-      setFilteredItems(filtered);
-    }
+  
+      const searchValuInput = e.target.value.toLowerCase();
+     setSearchValue(searchValuInput)
     setCurrentPage(1);
   };
 
   const handleCurrentPage = (page) => setCurrentPage(page);
 
+  const handlefilter = () => {
+    let filtered = items;
+  
+    if (searchValue.trim() !== "") {
+      filtered = filtered.filter((itm) =>
+        itm.name.toLowerCase().includes(searchValue)
+      );
+    }
+  
+    if (slectedCategory !== 0) {
+      filtered = filtered.filter((itm) => +itm.category === slectedCategory);
+    }
+  
+    setFilteredItems(filtered);
+  };
+
+  useEffect(() => {
+    handlefilter();
+  }, [searchValue, slectedCategory, items]);
   //filter Items
   // let filterItems =
   //   slectedCategory === 0
