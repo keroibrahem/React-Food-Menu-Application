@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Large Burger",
-      "price": "50",
+      "price": "51",
       "count": 0,
       "clicked": false,
       "category": "1"
@@ -73,17 +73,58 @@
       "category": "3"
     },
     {
-        "id": 10,
-        "name": "ice",
-        "price": "3",
-        "count": 0,
-        "clicked": false,
-        "category": "3"
-      }
-  ]
-  ,"categorys":[
-    {"id":1,"name":"Burger"},
-    {"id":2,"name":"Fries"},
-    {"id":3,"name":"Water"}
+      "id": 10,
+      "name": "ice",
+      "price": "3",
+      "count": 0,
+      "clicked": false,
+      "category": "3"
+    },
+    {
+      "name": "pitzza",
+      "price": "111",
+      "category": "",
+      "count": 0,
+      "clicked": false,
+      "id": 11
+    },
+    {
+      "name": "kero",
+      "price": "111",
+      "category": "",
+      "count": 0,
+      "clicked": false,
+      "id": 12
+    },
+    {
+      "name": "pitzza",
+      "price": "123",
+      "category": "",
+      "count": 0,
+      "clicked": false,
+      "id": 14
+    },
+    {
+      "name": "pitzza3",
+      "price": "123",
+      "category": "",
+      "count": 0,
+      "clicked": false,
+      "id": 15
+    }
+  ],
+  "categorys": [
+    {
+      "id": 1,
+      "name": "Burger"
+    },
+    {
+      "id": 2,
+      "name": "Fries"
+    },
+    {
+      "id": 3,
+      "name": "Water"
+    }
   ]
 }

@@ -8,11 +8,14 @@ import AboutCompany from "./pages/AboutCompany";
 import AboutPeople from "./pages/AboutPeople";
 import Error from "./pages/Error";
 import axios from "axios";
+import Admin from "./pages/Admin";
+import FormAddItem from "./pages/FormAddItem";
+import { ToastContainer, toast } from 'react-toastify'; 
 
 function App() {
   const [items, setItems] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]);
+  // const [filteredItems, setFilteredItems] = useState([]);
   const [searchValue , setSearchValue] = useState("");
   const [loading, setloading] = useState(false);
   const [slectedCategory, setSelectedCat] = useState(0);
@@ -99,36 +102,35 @@ function App() {
   };
 
   const handleCurrentPage = (page) => setCurrentPage(page);
+  const handleAddNewProd = (product) =>{
+    //clone $ edit
+    const newItemsList=[...items,product]
+    //set data
+    setItems(newItemsList)
 
-  const handlefilter = () => {
-    let filtered = items;
-  
-    if (searchValue.trim() !== "") {
-      filtered = filtered.filter((itm) =>
-        itm.name.toLowerCase().includes(searchValue)
-      );
-    }
-  
-    if (slectedCategory !== 0) {
-      filtered = filtered.filter((itm) => +itm.category === slectedCategory);
-    }
-  
-    setFilteredItems(filtered);
+  }
+  const handelEdit = (nemitem) => {
+    //clone
+    const newitems = [...items];
+    const index = newitems.findIndex((itm) => itm.id === nemitem.id);
+    console.log(newitems[index].count);
+    //edit
+      newitems[index] = nemitem;
+    
+    //setitems
+    setItems(newitems);
   };
-
-  useEffect(() => {
-    handlefilter();
-  }, [searchValue, slectedCategory, items]);
   //filter Items
-  // let filterItems =
-  //   slectedCategory === 0
-  //     ? items
-  //     : items.filter((itm) => +itm.category === slectedCategory);
+  let filterItems =
+    slectedCategory === 0
+      ? items
+      : items.filter((itm) => +itm.category === slectedCategory);
+  filterItems=filterItems.filter((itm) =>itm.name.toLowerCase().includes(searchValue))
   //pagination
-  const noOfPage = Math.ceil(filteredItems.length / pageSize);
+  const noOfPage = Math.ceil(filterItems.length / pageSize);
   const start = (currentPage - 1) * pageSize;
   const end = start + pageSize;
-  const paginatedItems = filteredItems.slice(start, end);
+  const paginatedItems = filterItems.slice(start, end);
 
   return (
     <>
@@ -136,7 +138,7 @@ function App() {
         nomOfItims={items.reduce((Sum, itm) => itm.count + Sum, 0)}
         hasClickedItems={items.some((itm) => itm.clicked === true)}
       />
-
+<ToastContainer />
       <Routes>
         <Route
           path="/"
@@ -167,6 +169,9 @@ function App() {
             />
           }
         />
+        <Route path="/Admin" element={<Admin items={items} handeldelete={handeldelete} />} >
+        </Route>
+        <Route path="/Admin/AddItem" element={<FormAddItem handleAddNewProd={handleAddNewProd} handelEdit={handelEdit} />} ></Route>
         <Route path="/About" element={<About />}>
           <Route path="company" element={<AboutCompany />} />
           <Route path="people" element={<AboutPeople />} />

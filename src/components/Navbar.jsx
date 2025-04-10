@@ -21,6 +21,16 @@ export default function Navbar(props) {
           </li>
           <li>
             <NavLink
+              to={"/Admin"}
+              className={({ isActive }) =>
+                `${isActive ? "font-bold bg-gray-200" : " "} text-lg shadow`
+              }
+            >
+              Admin
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to={"/About"}
               className={({ isActive }) =>
                 `${isActive ? "font-bold bg-gray-200" : " "} text-lg shadow`
