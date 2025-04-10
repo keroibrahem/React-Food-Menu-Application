@@ -1,17 +1,9 @@
 {
   "menu": [
     {
-      "id": 1,
-      "name": "Large Burger",
-      "price": "51",
-      "count": 0,
-      "clicked": false,
-      "category": "1"
-    },
-    {
       "id": 2,
       "name": "Large Fries",
-      "price": "40",
+      "price": "41",
       "count": 0,
       "clicked": false,
       "category": "2"
@@ -97,20 +89,12 @@
       "id": 12
     },
     {
-      "name": "pitzza",
-      "price": "123",
-      "category": "",
+      "name": "Large Burger",
+      "price": "50",
+      "category": "1",
       "count": 0,
       "clicked": false,
-      "id": 14
-    },
-    {
-      "name": "pitzza3",
-      "price": "123",
-      "category": "",
-      "count": 0,
-      "clicked": false,
-      "id": 15
+      "id": 13
     }
   ],
   "categorys": [

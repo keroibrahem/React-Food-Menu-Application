@@ -169,7 +169,7 @@ function App() {
             />
           }
         />
-        <Route path="/Admin" element={<Admin items={items} handeldelete={handeldelete} />} >
+        <Route path="/Admin" element={<Admin items={items} handeldelete={handeldelete} loading={loading}/>} >
         </Route>
         <Route path="/Admin/AddItem" element={<FormAddItem handleAddNewProd={handleAddNewProd} handelEdit={handelEdit} />} ></Route>
         <Route path="/About" element={<About />}>
